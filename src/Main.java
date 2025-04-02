@@ -11,7 +11,7 @@ public class Main
         while (true)
         {
             //
-            System.out.println("What do you want to do? [L]ook for a Pokemon, " +
+            System.out.println("\nWhat do you want to do? [L]ook for a Pokemon, " +
                     "view your [F]ound Pokemon, [I]tems, " +
                     "[V]isit Pokestop, [E]xit?");
             String input = inputScanner.nextLine();
@@ -44,14 +44,14 @@ public class Main
         if(game.lookForPokemon())
         {
             Pokemon pokemon = game.getFoundPokemon();
-            System.out.println("Pokemon found: " + pokemon.getName() +
+            System.out.println("\nPokemon found: " + pokemon.getName() +
                     ", Combat Points: " + pokemon.getCombatPoints());
 
             while(true)
             {
                 //
                 displayBallCounts(game);
-                System.out.println("Choose: [B]all, [G]reat ball or [U]ltra ball ([E]xit):");
+                System.out.println("\nChoose: [B]all, [G]reat ball or [U]ltra ball ([E]xit):");
                 Scanner inputScanner = new Scanner(System.in);
                 String ballType = inputScanner.nextLine();
 
@@ -76,28 +76,28 @@ public class Main
                 Pokemon.CaptureResult result = game.attemptToCatchPokemon(ball);
                 if(result == null)
                 {
-                    System.out.println("Attempt failed. No Pokeballs!");
+                    System.out.println("\nAttempt failed. No Pokeballs!");
                     return;
                 }
 
                 switch (result)
                 {
                     case CAUGHT:
-                        System.out.println("You caught " + pokemon.getName() +
+                        System.out.println("\nYou caught " + pokemon.getName() +
                                 "! Combat Points: " + pokemon.getCombatPoints());
                         return;    // catch loop exited - pokemon caught
                     case FAIL:
-                        System.out.println("Failed to catch Pokemon!");
+                        System.out.println("\nFailed to catch Pokemon!");
                         break;    // catch loop restarts
                     case FLEE:
-                        System.out.println("The Pokemon has fled!");
+                        System.out.println("\nThe Pokemon has fled!");
                         return;    // exited
                 }
             }
         }
         else
         {
-            System.out.println("Did not find Pokemon.");
+            System.out.println("\nDid not find Pokemon.");
         }
     }
 
@@ -107,15 +107,15 @@ public class Main
         int greatBallCount = game.getBallCount(PokeBall.GREAT);
         int ultraBallCount = game.getBallCount(PokeBall.ULTRA);
 
-        System.out.println("You have " + ballCount + "balls, " +
-                greatBallCount + " great balls, and " + ultraBallCount +  " ultra balls.");
+        System.out.println("\nYou have " + ballCount + " STANDARD balls, " +
+                greatBallCount + " GREAT balls, and " + ultraBallCount +  " ULTRA balls.");
     }
 
     private static void displayInventory(PokeballGame game)
     {
         ArrayList<Pokemon> pokemons = game.getCaughtPokemon();
 
-        System.out.println("Pokemon you've caught:");
+        System.out.println("\nPokemon you've caught:");
         if(!pokemons.isEmpty())
         {
             for (Pokemon pokemon : pokemons)
@@ -126,7 +126,7 @@ public class Main
         }
         else
         {
-            System.out.println("You have not caught any Pokemon.\n");
+            System.out.println("\nYou have not caught any Pokemon.\n");
         }
 
     }

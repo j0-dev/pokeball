@@ -27,7 +27,7 @@ public class PokeballGame
             fileScanner.useDelimiter(",");
             fileScanner.useLocale(Locale.UK);    // uses UK style decimal point
 
-            while (fileScanner.hasNextLine())
+            while (fileScanner.hasNext())
             {
                 final String name = fileScanner.next();
                 final int combatPoints = fileScanner.nextInt();
