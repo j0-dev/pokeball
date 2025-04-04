@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public class Pokemon
+public class Pokemon implements Comparable<Pokemon>
 {
     private String name;
     private int combatPoints;
@@ -27,6 +27,12 @@ public class Pokemon
     public int getCombatPoints()
     {
         return combatPoints;
+    }
+
+    @Override
+    public int compareTo(Pokemon pokemon)
+    {
+        return this.combatPoints - pokemon.combatPoints;
     }
 
     // methods

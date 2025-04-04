@@ -128,6 +128,24 @@ public class Main
         {
             System.out.println("\nYou have not caught any Pokemon.\n");
         }
+    }
 
+    private static void comparePokemon(Pokemon p1, Pokemon p2)
+    {
+        int result = p1.compareTo(p2);
+
+        System.out.println("Comparing " + p1 + " and " + p2);
+        if (result < 0)
+        {
+            System.out.println(p1.getName() + "is stronger.");
+        }
+        else if (result > 0)
+        {
+            System.out.println(p2.getName() + "is stronger.");
+        }
+        else
+        {
+            System.out.println("They are equal in strength.");
+        }
     }
 }
